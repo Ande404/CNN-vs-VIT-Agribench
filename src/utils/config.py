@@ -7,7 +7,8 @@ def initialize_project():
     Mounts drive, authenticates Git, and sets up system paths.
     """
     # 1. Mount Drive
-    drive.mount('/content/drive')
+    if not os.path.exists('/content/drive'):
+      drive.mount('/content/drive')
 
     # 2. Retrieve Private Secrets
     try:
